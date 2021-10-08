@@ -8,6 +8,15 @@ function obtenerdatos(){
     
 }
 
+function iniciosesion(){
+    var user = document.getElementById('user').value;
+    var passw = document.getElementById('contraseña').value;
+
+    document.logeo.usuarioobt.value = user;
+    document.logeo.passobt.value = passw;
+
+}
+
 
 
 
