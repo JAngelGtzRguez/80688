@@ -10,33 +10,34 @@
     <center>
         <body>
             <div class="container" class="mt-5">
-                <form name="registro" class="bg-none shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                        <div class="mb-4">
-                            <label class="block text-gray-700 text-sm font-bold mb-2">
-                              Correo Electronico
-                            </label>
-                            <input type="text" id="usuario" name="usuario" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <label class="block text-gray-700 text-sm font-bold mb-2">
-                              Contraseña
-                            </label>
-                            <input class="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password">
-                        </div>
-                          
-                        <div class="flex items-center justify-between">
-                            <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="obtenerdatos()">
-                                ¡Registrar!
-                            </button>
-                        </div>
-                        <label >Hola</label>
-                        <br>
-                        <label><input type="text" name="usuarioobt" id="usuarioobt"></input></label>
-                        <label></label><input  type="text" name="passobt" id="passobt"></input></label>
+                <form action="http://localhost:4567/saludar" method="get">
+                    <form class="bg-none shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">
+                                Correo Electronico
+                                </label>
+                                <input type="text" id="nombre" name="nombre" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">
+                                Contraseña
+                                </label>
+                                <input id="password" name="password" type="password" class="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="btnNoSubmitGet">
+                                    ¡Registrar!
+                                </button>
+                            </div>
+                            <label>Hola</label>
+                            <br>
+                            <label><input type="text" name="usuarioobt" id="usuarioobt"></input></label>
+                            <label></label><input  type="text" name="passobt" id="passobt"></input></label>
 
 
+                    </form>
                 </form>
               </div>
                 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
