@@ -8,6 +8,9 @@ import com.google.gson.*;
  */
 public class App {
     public static void main(String[] args) {
+        port(getHerokuAssignedPort());
+        get("/hello", (req, res) -> "Hello Heroku World");
+    
         // Enables CORS on requests. This method is an initialization method and should
         // be called once.
 
@@ -57,13 +60,35 @@ public class App {
             String respuesta;
             System.out.println(l + " " + p);
 
-            if (l.equals("root") && p.equals("123456"))
+            if (l.equals("Angel") && p.equals("123456"))
                 respuesta = "Bienvenido usuario ";
             else
                 respuesta = "Usuario equivocado ";
             return respuesta + l + " <a href='http://127.0.0.1:5500/Registros.html'>volver</a>";
         });
 
+        get("/saludar2", (req, res) -> {
+            String l = "Angel";
+            String p = "123456";
+            String respuesta;
+            System.out.println(l + " " + p);
+
+            if (l.equals("Angel") && p.equals("123456"))
+                respuesta = "Bienvenido usuario ";
+            else
+                respuesta = "Usuario equivocado ";
+            return respuesta + l;
+        });
+
         
+    }
+
+
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 }
