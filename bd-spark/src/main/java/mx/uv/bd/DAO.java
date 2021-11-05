@@ -92,4 +92,83 @@ public class DAO {
         }
         return resultado;
     }
+
+    public String actualizarUsuario(Usuario u) {
+        PreparedStatement stm = null;
+        Connection con = null;
+        String msj = "";
+
+        con = conexion.getConnection();
+        try {
+            String sql = "UPDATE usuarios SET id=?, email=?, password=?) WHERE id=?";
+            stm = con.prepareStatement(sql);
+            stm.setString(1, u.getId());
+            stm.setString(2, u.getEmail());
+            stm.setString(3, u.getPassword());
+            stm.setString(4, u.getEmail());
+
+            if (stm.executeUpdate() > 0)
+                msj = "El usuario fue aactualizado";
+            else
+                msj = "El usuario no se actualizo";
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                try {
+                    stm.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return msj;
+        
+    }
+
+    public String eliminarUsuario(Usuario u){
+        PreparedStatement stm = null;
+        Connection con = null;
+        String msj = "";
+
+        con = conexion.getConnection();
+        try {
+            String sql = "DELETE FROM usuarios WHERE id=?";
+            stm = con.prepareStatement(sql);
+            //stm.setString(1, u.getId());
+            stm.setString(1, u.getEmail());
+
+            if (stm.executeUpdate() > 0)
+                msj = "El usuario fue Eliminado";
+            else
+                msj = "El usuario no se Eliminado";
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                try {
+                    stm.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return msj;
+    }
+
+    
 }

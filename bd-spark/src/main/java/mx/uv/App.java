@@ -40,7 +40,7 @@ public class App {
         get("/usuarios", (req, res) -> {
             before((rq, rs) -> rs.type("application/json"));
             DAO dao = new DAO();
-            // return gson.toJson(usuarios.values());
+            //return gson.toJson(usuarios.values());
             //System.out.println(dao.listaUsuario().get(0).getEmail());
             return gson.toJson(dao.listaUsuario());
         });
