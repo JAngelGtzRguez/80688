@@ -93,22 +93,22 @@ public class DAO {
         return resultado;
     }
 
-    public String actualizarUsuario(Usuario u) {
+    public String actualizarUsuario(String email) {
         PreparedStatement stm = null;
         Connection con = null;
         String msj = "";
 
         con = conexion.getConnection();
         try {
-            String sql = "UPDATE usuarios SET id=?, email=?, password=?) WHERE id=?";
+            String sql = "UPDATE usuarios SET id=?, email=?, password=? WHERE email=?";
             stm = con.prepareStatement(sql);
-            stm.setString(1, u.getId());
-            stm.setString(2, u.getEmail());
-            stm.setString(3, u.getPassword());
-            stm.setString(4, u.getEmail());
+            stm.setString(1, "192021");
+            stm.setString(2, "jeje@exameple.com");
+            stm.setString(3, "JIJIJI");
+            stm.setString(4, email);
 
             if (stm.executeUpdate() > 0)
-                msj = "El usuario fue aactualizado";
+                msj = "El usuario fue actualizado";
             else
                 msj = "El usuario no se actualizo";
 
@@ -133,17 +133,16 @@ public class DAO {
         
     }
 
-    public String eliminarUsuario(Usuario u){
+    public String eliminarUsuario(String email){
         PreparedStatement stm = null;
         Connection con = null;
         String msj = "";
 
         con = conexion.getConnection();
         try {
-            String sql = "DELETE FROM usuarios WHERE id=?";
+            String sql = "DELETE FROM usuarios WHERE email=?";
             stm = con.prepareStatement(sql);
-            //stm.setString(1, u.getId());
-            stm.setString(1, u.getEmail());
+            stm.setString(1, email);
 
             if (stm.executeUpdate() > 0)
                 msj = "El usuario fue Eliminado";

@@ -59,5 +59,26 @@ public class App {
             return objetoJson;
         });
 
+        //PARA MODIFICAR 
+        post("/usuarioM", (req, res) -> {
+            String email = "jaja@gmail.com";
+            
+            DAO dao = new DAO();
+            JsonObject objetoJson = new JsonObject();
+            dao.actualizarUsuario(email);
+            return objetoJson;
+        });
+
+        //PARA ELIMINAR
+        post("/usuarioE", (req, res) -> {
+            String email = "jeje@exameple.com";
+            
+            DAO dao = new DAO();
+            JsonObject objetoJson = new JsonObject();
+            //dao.actualizarUsuario(email);
+            dao.eliminarUsuario(email);
+            return objetoJson;
+        });
+
     }
 }

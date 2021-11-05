@@ -25,3 +25,33 @@ btnUsuarios.addEventListener("click", function () {
         console.log(error);
     })
 })
+
+//PARA MODIFICAR 
+var btnModificar = document.getElementById("modificar")
+btnModificar.addEventListener("click", function () {
+    axios.post("http://localhost:4567/usuarioM", {
+        email : document.getElementById("email").value,
+        //password : document.getElementById("password").value
+    })
+    .then(function (response) {
+        alert("mensaje: Usuario modificado con exito");
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
+})
+
+//PARA ELIMINAR
+var btnEliminar= document.getElementById("eliminar")
+btnEliminar.addEventListener("click", function () {
+    axios.post("http://localhost:4567/usuarioE", {
+        email : document.getElementById("email").value,
+        //password : document.getElementById("password").value
+    })
+    .then(function (response) {
+        alert("mensaje: Usuario eliminado con exito");
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
+})
