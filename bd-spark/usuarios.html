@@ -8,16 +8,47 @@
 </head>
 <body>
     <form action="">
-        <input type="text" placeholder="email" id="email">
-        <input type="password" placeholder="password" id="password">
+        
+        <center>
+        <h1>MOSTRAR Y AGREGAR USUARIOS</h1>
+        <input type="text" placeholder="Email" id="email">
+        <input type="password" placeholder="Password" id="password">
+        <br>
+        <br>
+        <button type="button" id="registrar">Registrar</button>
+        <button type="button" id="usuarios">Usuarios</button>
+        
+        <br>
+        <br>
+        <br>
+
+        <h1>MODIFICAR USUARIO</h1>
+        <h2>Ingresa el Email del usuario a modificar</h2>
+        <!--<input type="text" placeholder="Email Usuario" id="emailV">-->
+        <br>
+        <br>
+        <input type="text" placeholder="Nuevo ID" id="idM">
+        <input type="text" placeholder="Nuevo Email" id="emailM">
+        <input type="password" placeholder="Nuevo Password" id="passwordM">
+        <br>
+        <br>
+        <button type="button" id="modificar">Modificar</button>
+
+        <br>
+        <br>
+        <br>
+        
+        <h1>ELIMINAR USUARIO</h1>
+        <h2>Ingresa el Email del usuario a eliminar</h2>
+        <input type="text" placeholder="Email" id="emailE">
+        <br>
+        <br>
+        <button type="button" id="eliminar">Eliminar</button>
+
+
+        </center>
+        
     </form>
-    
-    <button type="button" id="registrar">registrar</button>
-    <button type="button" id="usuarios">usuarios</button>
-    <button type="button" id="modificar">Modificar</button>
-    <button type="button" id="eliminar">Eliminar</button>
-
-
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="usuarios.js"></script>
