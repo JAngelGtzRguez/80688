@@ -50,6 +50,7 @@ public class App {
             String id = UUID.randomUUID().toString();
             Usuario u = gson.fromJson(payload, Usuario.class);
             u.setId(id);
+            //System.out.println(u.getEmail());
             // usuarios.put(id, u);
 
             DAO dao = new DAO();
@@ -61,21 +62,27 @@ public class App {
 
         //PARA MODIFICAR 
         post("/usuarioM", (req, res) -> {
-            String email = "jaja@gmail.com";
-            
+            String payload = req.body();
+            Usuario u = gson.fromJson(payload, Usuario.class);            
+
             DAO dao = new DAO();
             JsonObject objetoJson = new JsonObject();
-            dao.actualizarUsuario(email);
+            dao.actualizarUsuario(u);
             return objetoJson;
         });
 
         //PARA ELIMINAR
         post("/usuarioE", (req, res) -> {
-            String email = "jeje@exameple.com";
-            
+
+            String payload = req.body();
+            Usuario u = gson.fromJson(payload, Usuario.class);
+            System.out.println(u.getEmail());
+            String email = u.getEmail();
+
+            System.out.println(email);
+            System.out.println("jejeje");
             DAO dao = new DAO();
             JsonObject objetoJson = new JsonObject();
-            //dao.actualizarUsuario(email);
             dao.eliminarUsuario(email);
             return objetoJson;
         });

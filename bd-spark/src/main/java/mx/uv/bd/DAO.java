@@ -93,7 +93,7 @@ public class DAO {
         return resultado;
     }
 
-    public String actualizarUsuario(String email) {
+    public String actualizarUsuario(Usuario u) {
         PreparedStatement stm = null;
         Connection con = null;
         String msj = "";
@@ -102,10 +102,10 @@ public class DAO {
         try {
             String sql = "UPDATE usuarios SET id=?, email=?, password=? WHERE email=?";
             stm = con.prepareStatement(sql);
-            stm.setString(1, "192021");
-            stm.setString(2, "jeje@exameple.com");
-            stm.setString(3, "JIJIJI");
-            stm.setString(4, email);
+            stm.setString(1, u.getId());
+            stm.setString(2, u.getEmail());
+            stm.setString(3, u.getPassword());
+            stm.setString(4, u.getEmail());
 
             if (stm.executeUpdate() > 0)
                 msj = "El usuario fue actualizado";
